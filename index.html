@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雷德斯減廢科技 (TRT) - 互動資源探索平台</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color: #0f172a; }
+.chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px; max-height: 400px; }
+@media (min-width: 768px) { .chart-container { height: 350px; } }
+.nav-btn.active { background-color: #0ea5e9; color: #ffffff; border-color: #0ea5e9; }
+.nav-btn { background-color: transparent; color: #64748b; border-color: #cbd5e1; }
+.glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+.fade-in { animation: fadeIn 0.5s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.tech-item.active { border-left: 4px solid #0ea5e9; background-color: #f0f9ff; }
+.tech-item { border-left: 4px solid transparent; }
+</style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- Chosen Palette: Slate (Neutrals) & Sky Blue (Accents) -->
+<!-- Application Structure Plan: Tabbed SPA logic for industrial waste management services. -->
+<!-- Visualization & Content Choices: Chart.js for data visualization; Tailwind for responsive UI. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+<header class="bg-slate-900 text-white shadow-lg z-10 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-3">
+<span class="text-4xl">🌊</span>
+<div>
+<h1 class="text-2xl md:text-3xl font-bold tracking-wide">雷德斯減廢科技 <span class="text-sky-400 font-light">TRT</span></h1>
+<p class="text-slate-400 text-sm mt-1 tracking-wider">工業廢水處理與資源化專家 | 35年+ 專業經驗</p>
+</div>
+</div>
+<nav class="flex gap-2 bg-slate-800 p-1 rounded-lg border border-slate-700 w-full md:w-auto overflow-x-auto">
+<button onclick="switchTab('overview')" id="btn-overview" class="nav-btn active px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap">營運概覽</button>
+<button onclick="switchTab('tech')" id="btn-tech" class="nav-btn px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap border border-transparent">核心技術分析</button>
+<button onclick="switchTab('global')" id="btn-global" class="nav-btn px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap border border-transparent">全球實績分佈</button>
+<button onclick="switchTab('contact')" id="btn-contact" class="nav-btn px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap border border-transparent">聯絡資訊</button>
+</nav>
+</div>
+</div>
+</header>
+
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+<section id="view-overview" class="fade-in space-y-8 block">
+<div class="bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-slate-200">
+<h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2"><span class="text-2xl">📖</span> 關於雷德斯 (TRT)</h2>
+<p class="text-slate-600 leading-relaxed text-lg mb-6">本區塊概述雷德斯的企業使命與核心價值。您可以透過互動卡片，了解我們如何應對日益嚴峻的環保法規。</p>
+<div class="p-6 bg-sky-50 rounded-xl border-l-4 border-sky-500 mb-8">
+<p class="text-sky-900 text-lg font-medium">致力於應對各項環保法規及日益嚴峻的排放標準。自主研發高效工業廢水處理藥劑，解決 COD、重金屬、氰化物、總氮等高難度廢水。</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-panel p-6 rounded-xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="text-4xl mb-4">🔬</div>
+<h4 class="text-xl font-bold text-slate-800 mb-2">技術領先</h4>
+<p class="text-slate-500 text-sm">跨領域整合環工、化學、機械與電機。</p>
+</div>
+<div class="glass-panel p-6 rounded-xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="text-4xl mb-4">♻️</div>
+<h4 class="text-xl font-bold text-slate-800 mb-2">資源循環</h4>
+<p class="text-slate-500 text-sm">打破線性排放，轉化為可重複利用資源。</p>
+</div>
+<div class="glass-panel p-6 rounded-xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="text-4xl mb-4">✅</div>
+<h4 class="text-xl font-bold text-slate-800 mb-2">法規達標</h4>
+<p class="text-slate-500 text-sm">確保企業端 100% 符合最新環保法規。</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="view-tech" class="fade-in space-y-8 hidden">
+<div class="bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-slate-200">
+<h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2"><span class="text-2xl">🛠</span> 核心技術分析</h2>
+<div class="flex flex-col lg:flex-row gap-8">
+<div class="w-full lg:w-1/3 space-y-3 flex flex-col">
+<button onclick="loadTechData('water')" id="tech-water" class="tech-item active text-left p-5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors w-full">
+<h3 class="font-bold text-lg text-slate-800">🧪 水處理藥劑</h3>
+<p class="text-xs text-slate-500 mt-1">開發高效 COD 分解劑、總氮去除劑。</p>
+</button>
+<button onclick="loadTechData('chrome')" id="tech-chrome" class="tech-item text-left p-5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors w-full">
+<h3 class="font-bold text-lg text-slate-800">♻️ 鉻酸純化回收</h3>
+<p class="text-xs text-slate-500 mt-1">台灣唯一大型鉻酸深度純化實績。</p>
+</button>
+<button onclick="loadTechData('sludge')" id="tech-sludge" class="tech-item text-left p-5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors w-full">
+<h3 class="font-bold text-lg text-slate-800">📉 污泥減量系統</h3>
+<p class="text-xs text-slate-500 mt-1">高真空與奈米級分離技術。</p>
+</button>
+</div>
+<div class="w-full lg:w-2/3 bg-slate-50 rounded-xl p-6 border border-slate-200">
+<div class="mb-6">
+<h3 id="tech-title" class="text-2xl font-bold text-sky-700 mb-2">技術效能分析</h3>
+<p id="tech-desc" class="text-slate-600 text-sm leading-relaxed"></p>
+</div>
+<div class="chart-container">
+<canvas id="techChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="view-global" class="fade-in space-y-8 hidden">
+<div class="bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-slate-200">
+<h2 class="text-2xl font-bold text-slate-800 mb-4">🌍 全球實績分佈</h2>
+<div class="flex flex-wrap gap-2 mb-8 justify-center">
+<button onclick="loadGlobalData('usa')" id="global-usa" class="px-5 py-2 rounded-full bg-slate-800 text-white text-sm">🇺🇸 美國</button>
+<button onclick="loadGlobalData('oman')" id="global-oman" class="px-5 py-2 rounded-full bg-slate-200 text-slate-700 text-sm">🇴🇲 阿曼</button>
+<button onclick="loadGlobalData('india')" id="global-india" class="px-5 py-2 rounded-full bg-slate-200 text-slate-700 text-sm">🇮🇳 印度</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+<h3 id="case-title" class="text-xl font-bold text-slate-800 mb-2"></h3>
+<p id="case-location" class="text-sky-600 text-sm font-medium mb-3"></p>
+<p id="case-desc" class="text-slate-600 text-sm"></p>
+</div>
+<div class="chart-container">
+<canvas id="globalChart"></canvas>
+</div>
+</div>
+</div>
+</section>
+
+<section id="view-contact" class="fade-in space-y-8 hidden">
+<div class="bg-slate-900 text-white rounded-2xl p-8 border border-slate-800 flex flex-col md:flex-row gap-8">
+<div class="md:w-1/2">
+<h2 class="text-3xl font-bold mb-6">📞 聯絡我們</h2>
+<div class="space-y-4 text-slate-300">
+<p><strong>公司：</strong>台灣雷德斯減廢科技有限公司</p>
+<p><strong>地址：</strong>新北市三重區溪尾街126巷15號</p>
+<p><strong>電話：</strong>02-2286-6693</p>
+<p><strong>LINE：</strong>trt9002</p>
+</div>
+</div>
+<div class="md:w-1/2 bg-slate-800 p-6 rounded-xl text-center">
+<h3 class="text-xl font-bold mb-4">🤝 立即諮詢</h3>
+<button class="w-full py-3 bg-sky-500 text-white font-bold rounded-lg shadow-lg">加入 LINE 線上諮詢</button>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="bg-slate-950 py-6 text-center text-slate-500 text-xs">
+<p>© 2026 Taiwan Redes Technology Co., Ltd. 版權所有</p>
+</footer>
+
+<script>
+let techChartInstance = null;
+let globalChartInstance = null;
+
+const techData = {
+water: { title: '水處理藥劑效能', desc: '開發高效 COD 分解劑、總氮去除劑。', labels: ['處理前', '處理後'], data: [1500, 85], type: 'bar' },
+chrome: { title: '鉻酸純化效益', desc: '劇毒原物料重複回收，降低新購成本。', labels: ['回收率', '損耗'], data: [96, 4], type: 'doughnut' },
+sludge: { title: '污泥減量成效', desc: '高真空乾燥技術大幅降低含水率。', labels: ['傳統', 'TRT系統'], data: [80, 15], type: 'bar' }
+};
+
+const globalData = {
+usa: { title: '農膜回收工程', loc: '美國南加州', desc: '建置高效能水回收系統。', data: [85, 98, 99] },
+oman: { title: '熱浸鍍鋅廢液處理', loc: '阿曼馬斯喀特', desc: '處理高濃度金屬廢液。', data: [99, 100, 95] },
+india: { title: '鞋業電鍍廢水處理', loc: '印度清奈', desc: '有效回收鉻酸資源。', data: [94, 99, 75] }
+};
+
+function switchTab(id) {
+document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
+document.getElementById('view-' + id).classList.remove('hidden');
+document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+document.getElementById('btn-' + id).classList.add('active');
+if(id === 'tech') loadTechData('water');
+if(id === 'global') loadGlobalData('usa');
+}
+
+function loadTechData(key) {
+const d = techData[key];
+document.getElementById('tech-title').innerText = d.title;
+document.getElementById('tech-desc').innerText = d.desc;
+document.querySelectorAll('.tech-item').forEach(i => i.classList.remove('active', 'bg-slate-50'));
+document.getElementById('tech-' + key).classList.add('active', 'bg-slate-50');
+
+const ctx = document.getElementById('techChart').getContext('2d');
+if(techChartInstance) techChartInstance.destroy();
+techChartInstance = new Chart(ctx, {
+type: d.type,
+data: { labels: d.labels, datasets: [{ data: d.data, backgroundColor: ['#94a3b8', '#0ea5e9'] }] },
+options: { responsive: true, maintainAspectRatio: false }
+});
+}
+
+function loadGlobalData(key) {
+const d = globalData[key];
+document.getElementById('case-title').innerText = d.title;
+document.getElementById('case-location').innerText = d.loc;
+document.getElementById('case-desc').innerText = d.desc;
+document.querySelectorAll('[id^="global-"]').forEach(b => b.className = 'px-5 py-2 rounded-full bg-slate-200 text-slate-700 text-sm');
+document.getElementById('global-' + key).className = 'px-5 py-2 rounded-full bg-slate-800 text-white text-sm';
+
+const ctx = document.getElementById('globalChart').getContext('2d');
+if(globalChartInstance) globalChartInstance.destroy();
+globalChartInstance = new Chart(ctx, {
+type: 'bar',
+data: { labels: ['回收率', '達標率', '滿意度'], datasets: [{ data: d.data, backgroundColor: '#0ea5e9' }] },
+options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false }
+});
+}
+
+document.addEventListener('DOMContentLoaded', () => switchTab('overview'));
+</script>
+</body>
+</html>
