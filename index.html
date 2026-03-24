@@ -60,7 +60,7 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
 
 <!-- Chosen Palette: Slate (Neutrals), Sky Blue (Nav Active), & Red (Brand Identity) -->
 <!-- Application Structure Plan: Tabbed SPA logic. Header resized and moved left. Responsive nav (Desktop: row, Mobile: dropdown with icon). -->
-<!-- Visualization & Content Choices: Chart.js; DFKai-SB typography; Responsive Tailwind grid. Updated mobile menu button to use 1774318151765.jpg icon. -->
+<!-- Visualization & Content Choices: Chart.js; DFKai-SB typography; Responsive Tailwind grid. Updated mobile menu button to enlarge the icon. -->
 <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
 <header class="bg-slate-900 text-white shadow-lg z-50 sticky top-0 border-b border-slate-800">
@@ -89,10 +89,11 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
             <button onclick="switchTab('contact')" id="btn-contact" class="nav-btn px-3 lg:px-4 py-2 text-sm font-medium whitespace-nowrap">聯絡雷德斯</button>
         </nav>
 
-        <!-- 行動裝置下拉按鍵 (小螢幕顯示，修改為圖片圖示) -->
+        <!-- 行動裝置下拉按鍵 (小螢幕顯示，修改為圖片圖示並放大) -->
         <div class="lg:hidden">
-            <button onclick="toggleMobileMenu()" class="p-1 bg-slate-800 rounded-lg border border-slate-700 focus:outline-none flex items-center justify-center">
-                <img src="ha.png" alt="選單" class="h-8 w-8 object-contain">
+            <button onclick="toggleMobileMenu()" class="p-2 bg-slate-800 rounded-lg border border-slate-700 focus:outline-none flex items-center justify-center">
+                <!-- 修改：將 class 從 h-8 w-8 調整為 h-10 w-10 以放大圖片 -->
+                <img src="ha.png" alt="選單" class="h-10 w-10 object-contain">
             </button>
         </div>
     </div>
@@ -127,7 +128,7 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
 
 <div class="glass-panel p-6 rounded-xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer">
 <div class="text-4xl mb-4">♻️</div>
-<h4 class="text-xl font-bold text-slate-800 mb-2">資源循環</h4>
+<h4 class="text-xl font-bold text-slate-800 mb-2">藥劑服務</h4>
 <p class="text-slate-500 text-sm">打破線性排放，透過深度純化技術轉化為可重複利用資源。</p>
 </div>
 <div class="glass-panel p-6 rounded-xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer">
