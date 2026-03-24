@@ -68,11 +68,9 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
-<!-- 固定導覽列 -->
 <header class="bg-slate-900 text-white shadow-lg z-50 sticky top-0 border-b border-slate-800">
 <div class="max-w-[1400px] mx-auto px-2 sm:px-4 py-3 md:py-6">
     <div class="flex justify-between items-center">
-        <!-- 左側：品牌標誌與名稱 -->
         <div class="flex items-center gap-3 md:gap-5">
             <button onclick="switchTab('overview')" class="logo-btn cursor-pointer focus:outline-none">
                 <img src="trt.png" alt="雷德斯 TRT 標誌" class="h-12 md:h-18 lg:h-20 w-auto object-contain">
@@ -84,7 +82,6 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
             </div>
         </div>
 
-        <!-- 桌面版導覽 -->
         <nav class="hidden lg:flex items-center gap-0 bg-slate-800/80 p-1 rounded-xl border border-slate-700 shadow-xl overflow-hidden">
             <button onclick="switchTab('overview')" id="btn-overview" class="nav-btn active px-3 lg:px-4 py-2 text-sm font-medium whitespace-nowrap">營運概覽</button>
             <button onclick="switchTab('tech')" id="btn-tech" class="nav-btn px-3 lg:px-4 py-2 text-sm font-medium whitespace-nowrap">水處理藥劑設備</button>
@@ -92,7 +89,6 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
             <button onclick="switchTab('contact')" id="btn-contact" class="nav-btn px-3 lg:px-4 py-2 text-sm font-medium whitespace-nowrap">聯絡雷德斯</button>
         </nav>
 
-        <!-- 行動版選單按鍵 -->
         <div class="lg:hidden">
             <button onclick="toggleMobileMenu()" class="p-0.5 bg-slate-800 rounded-lg border border-slate-700 focus:outline-none flex items-center justify-center">
                 <img src="ha.png" alt="選單" class="h-14 w-14 object-contain">
@@ -100,7 +96,6 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
         </div>
     </div>
 
-    <!-- 行動版下拉菜單 -->
     <div id="mobile-menu" class="lg:hidden mt-3 flex flex-col gap-1 font-kai">
         <button onclick="switchTab('overview'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm border border-slate-700">營運概覽</button>
         <button onclick="switchTab('tech'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm border border-slate-700">水處理藥劑設備</button>
@@ -110,48 +105,74 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
 </div>
 </header>
 
-<main class="flex-grow max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-16">
+<main class="flex-grow max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
 
-    <!-- 視圖：營運概覽 (首頁) -->
+    <!-- 視圖：營運概覽 -->
     <section id="view-overview" class="fade-in space-y-12 block">
         <div class="bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-slate-200">
             <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2 font-kai"><span class="text-2xl">📖</span> 關於雷德斯 (TRT)</h2>
             <div class="p-8 bg-sky-50 rounded-xl border-l-4 border-sky-500 mb-8">
                 <p class="text-sky-900 text-lg font-medium leading-relaxed">
-                雷德斯TRT秉持精益求精的環境工程專業技術，因應各項環保法規及放流水標準開發之高效工業廢水處理藥劑/藥品與穩固耐用之工業廢水處理設備，務實解決COD、金屬、氰化物、氟、總氮(氨氮、亞硝酸鹽、硝酸鹽氮)等不同高低濃度廢水廢液需求，如振動研磨廢水處理及化學鎳工業製程高濃度廢液處理，廣泛得到客戶青睞肯定與長期配合
+                雷德斯TRT秉持精益求精的環境工程專業技術，因應各項環保法規及放流水標準開發之高效工業廢水處理藥劑/藥品與穩固耐用之工業廢水處理設備，務實解決COD、金屬、氰化物、氟、總氮等不同高低濃度廢水需求，廣泛得到客戶肯定的長期配合。
                 </p>
             </div>
 
-            <!-- 三大核心服務切換 -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-                <button onclick="switchTab('rd')" class="flex flex-col text-left glass-panel p-8 rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer group focus:outline-none">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mb-12">
+                <button onclick="switchTab('rd')" class="flex flex-col text-left glass-panel p-8 rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer group h-full focus:outline-none">
                     <div class="h-16 flex items-center mb-6">
                         <div class="text-5xl group-hover:scale-110 transition-transform">🔬</div>
                     </div>
-                    <h4 class="text-2xl font-bold text-slate-800 mb-3 font-kai">技術研發</h4>
-                    <p class="text-slate-500 text-base leading-relaxed">工業廢水處理設備多項專利技術</p>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3 font-kai text-center md:text-left">技術研發</h4>
+                    <p class="text-slate-500 text-base leading-relaxed text-center md:text-left">工業廢水處理設備多項專利技術</p>
                 </button>
 
-                <button onclick="switchTab('chemical')" class="flex flex-col text-left glass-panel p-8 rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer group focus:outline-none">
+                <button onclick="switchTab('chemical')" class="flex flex-col text-left glass-panel p-8 rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer group h-full focus:outline-none">
                     <div class="h-16 flex items-center mb-6">
                         <div class="text-5xl group-hover:scale-110 transition-transform">🧪</div>
                     </div>
-                    <h4 class="text-2xl font-bold text-slate-800 mb-3 font-kai">藥劑服務</h4>
-                    <p class="text-slate-500 text-base leading-relaxed">高效 COD 降解與水處理專用藥劑</p>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-3 font-kai text-center md:text-left">藥劑服務</h4>
+                    <p class="text-slate-500 text-base leading-relaxed text-center md:text-left">高效 COD 降解與水處理專用藥劑</p>
                 </button>
 
                 <div class="flex flex-col text-left glass-panel p-8 rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer group">
                     <div class="h-16 flex items-center mb-6">
                         <div class="text-5xl group-hover:scale-110 transition-transform">✅</div>
                     </div>
-                    <h4 class="text-xl md:text-2xl font-bold text-slate-800 mb-3 font-kai">法規達標</h4>
-                    <p class="text-slate-500 text-base leading-relaxed">確保企業 100% 符合環保法規</p>
+                    <h4 class="text-xl md:text-2xl font-bold text-slate-800 mb-3 font-kai text-center md:text-left">法規達標</h4>
+                    <p class="text-slate-500 text-base leading-relaxed text-center md:text-left">確保企業 100% 符合環保法規</p>
                 </div>
+            </div>
+        </div>
+
+        <!-- 諮詢表單區塊 -->
+        <div class="inquiry-bg rounded-3xl overflow-hidden shadow-xl border border-blue-100 flex flex-col lg:flex-row">
+            <div class="lg:w-1/2 p-8 md:p-12">
+                <p class="text-blue-600 font-bold mb-4 tracking-wider font-kai">提供各項水處理藥劑設備，歡迎洽詢</p>
+                <h3 class="text-2xl md:text-3xl font-black text-slate-800 mb-8 leading-tight font-kai">
+                    索取水處理藥劑樣品、購買藥劑<br>新(增)設、修改廢水處理設備
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3 text-slate-700 font-medium font-kai"><span class="text-blue-500 text-xl">✔</span> 製程高濃度COD廢液處理藥品</li>
+                    <li class="flex items-center gap-3 text-slate-700 font-medium font-kai"><span class="text-blue-500 text-xl">✔</span> 總氮、氨氮、硝酸鹽氮去除劑</li>
+                    <li class="flex items-center gap-3 text-slate-700 font-medium font-kai"><span class="text-blue-500 text-xl">✔</span> 高COD裂解系統規劃</li>
+                    <li class="flex items-center gap-3 text-slate-700 font-medium font-kai"><span class="text-blue-500 text-xl">✔</span> 鉻酸純化回收系統(硬鉻製程)</li>
+                    <li class="flex items-center gap-3 text-slate-700 font-medium font-kai"><span class="text-blue-500 text-xl">✔</span> 回收工程規劃、設計、施工、設備安裝</li>
+                </ul>
+            </div>
+            <div class="lg:w-1/2 bg-slate-100 p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <input type="text" placeholder="公司名稱 *" class="w-full p-3 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500 font-kai">
+                    <input type="text" placeholder="聯絡人 *" class="w-full p-3 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500 font-kai">
+                    <input type="text" placeholder="電話 *" class="w-full p-3 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500 font-kai">
+                    <input type="text" placeholder="信箱 *" class="w-full p-3 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500 font-kai">
+                </div>
+                <textarea rows="4" placeholder="請說明您所需要的服務及遇到的情況 *" class="w-full p-3 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500 font-kai mb-6"></textarea>
+                <button class="w-full py-4 bg-slate-400 text-white font-bold rounded-lg transition-colors hover:bg-slate-500 shadow-md font-kai text-xl">預約雷德斯通話與合作</button>
             </div>
         </div>
     </section>
 
-    <!-- 視圖：研發詳情 -->
+    <!-- 視圖：技術研發 -->
     <section id="view-rd" class="fade-in space-y-8 hidden">
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
             <div class="p-6 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
@@ -160,17 +181,38 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
                 </button>
                 <span class="text-slate-400 text-sm font-bold tracking-widest uppercase">技術研發專頁</span>
             </div>
-            <div class="p-8 md:p-16 max-w-5xl mx-auto text-center">
-                <h2 class="text-2xl md:text-3xl font-black text-slate-800 mb-4 font-kai">工業廢水處理設備 多項專利技術研發優勢</h2>
-                <p class="text-slate-600 leading-relaxed mb-12 text-xl font-light">雷德斯TRT擁有 35 年豐富實務經驗，開發佔地小且高效率的廢水處理系統。</p>
-                <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white inline-block mb-12">
-                    <img src="customer.jpeg" alt="現場實際畫面" class="max-w-full h-auto">
+            <div class="p-8 md:p-16 max-w-5xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-800 mb-4 font-kai leading-tight">
+                        工業廢水處理設備 多項專利技術研發優勢
+                    </h2>
+                    <div class="h-1 w-20 bg-sky-500 mx-auto"></div>
+                </div>
+                <p class="text-slate-600 leading-relaxed mb-12 text-lg text-center font-light">
+                    雷德斯TRT有超過35年豐富的工業製程廢水廢液實務處理經驗，開發出佔地小具有高效率高效能的廢水系統處理設備。
+                </p>
+                <div class="text-center mb-16">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white inline-block">
+                        <img src="customer.jpeg" alt="現場實際畫面" class="max-w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">可回收原物料與製程用水</p></div>
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">可24小時運轉，降低停機機率</p></div>
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">可大幅降低污泥產生量</p></div>
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">運轉費用極低、節省人事費用</p></div>
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">耐久材設備，比傳統系統使用年長</p></div>
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">模組化設計，可拆卸遷移且佔地小</p></div>
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">自動化的人機使用介面</p></div>
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">操作維護技術簡單、維護成本低</p></div>
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">雷德斯TRT研發新型專利設計</p></div>
+                    <div class="flex items-center gap-4 font-kai"><span class="text-blue-400 text-2xl">💧</span><p class="text-slate-700 font-medium text-lg">系統回收處理穩定性極高</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 視圖：藥劑服務方案 (全面整合實測數據與型號清單) -->
+    <!-- 視圖：藥劑服務 (還原全部資訊) -->
     <section id="view-chemical" class="fade-in space-y-8 hidden">
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
             <div class="p-6 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
@@ -181,15 +223,15 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
             </div>
             
             <div class="p-8 md:p-16 max-w-6xl mx-auto">
+                <!-- 置頂實測數據 -->
                 <div class="text-left mb-12 border-b pb-8 border-slate-100">
                     <p class="text-blue-600 font-bold text-sm mb-2 tracking-widest font-kai">⊕ 高低濃度工業廢水處理解決方案</p>
-                    <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-6 font-kai">雷德斯TRT水處理開發藥劑</h2>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-6 font-kai">工業廢水處理藥劑 效果更好且用藥更合理</h2>
                     <p class="text-slate-600 leading-relaxed text-lg font-light">
-                        解決您工廠高濃度 COD 的處理效率並具穩定度，將製程廢水降低至放流水標準 100mg/L 以下。
+                        台灣雷德斯減廢科技有限公司提供客製化廢水處理藥劑服務，跨領域的技術整合(如: 搭配電化學、UF膜、UV光學、真空濃縮、離子交換樹脂)，可提供客戶優質且節省成本的藥劑規劃方案，尤其是在振動研磨廢水、化學鎳、鉻酸純化等各工業製程領域取得卓越成績，除確保廢水處理效果達到排放標準且符合法規外，若輔以業主的配合，可成功轉為資源化再利用，協助客戶節省數百萬元
                     </p>
                 </div>
 
-                <!-- 1. 實測案例數據 (根據 1774335472843.jpg 保留全部資訊) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mb-20">
                     <div class="flex items-start gap-4"><div class="text-3xl mt-1 text-blue-500">🧪</div><p class="text-slate-700 font-medium text-lg">振動研磨高濃度廢液，COD 24000ppm → 600ppm 以下</p></div>
                     <div class="flex items-start gap-4"><div class="text-3xl mt-1 text-blue-500">🧪</div><p class="text-slate-700 font-medium text-lg">電泳漆排水，COD 1000ppm → 50ppm</p></div>
@@ -200,40 +242,40 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
                     <div class="flex items-start gap-4"><div class="text-3xl mt-1 text-blue-500">🧪</div><p class="text-slate-700 font-medium text-lg">多家含鎳製程排水 < 0.5ppm，低濃度排水添加，可滿足加嚴標準</p></div>
                     <div class="flex items-start gap-4"><div class="text-3xl mt-1 text-blue-500">🧪</div><p class="text-slate-700 font-medium text-lg">氟處理劑 化學拋光排水 130ppm → < 15ppm</p></div>
                     <div class="flex items-start gap-4"><div class="text-3xl mt-1 text-blue-500">🧪</div><p class="text-slate-700 font-medium text-lg">硝酸製程排水中的硝酸鹽氮由 120ppm 降至 10ppm，去除率達 90%</p></div>
-                    <div class="flex items-start gap-4"><div class="text-3xl mt-1 text-blue-500">🧪</div><p class="text-slate-700 font-medium text-lg">氰化物高濃度廢液，120000ppm 以上 → < 100ppm，可除 99%~99.9%</p></div>
+                    <div class="flex items-start gap-4"><div class="text-3xl mt-1 text-blue-500">🧪</div><p class="text-slate-700 font-medium text-lg">氰化物高濃度廢液，120000ppm 以上 → < 100ppm，可除 99% 以上</p></div>
                 </div>
 
-                <!-- 2. 藥劑型號清單 (根據 1774332983197.jpg 保留全部資訊) -->
+                <!-- 完整型號清單 -->
                 <div class="pt-8 border-t border-slate-100">
                     <h3 class="text-2xl font-bold text-slate-800 mb-6 font-kai flex items-center gap-2">
                         <span class="text-blue-600 text-3xl">❖</span> COD 降解處理藥劑型號詳情
                     </h3>
                     <div class="space-y-4">
-                        <p class="text-slate-400 text-xs mb-4">— 點選型號即可彈出實拍圖片 —</p>
+                        <p class="text-slate-400 text-xs mb-4">— 點選型號即可彈出產品實拍圖片 —</p>
                         
                         <button onclick="openChemicalModal('TRT-NA')" class="w-full text-left p-6 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/30 transition-all shadow-sm group">
                             <span class="font-bold text-blue-700 text-xl block mb-2 group-hover:underline">TRT-NA / TRT-NAO</span>
-                            <span class="text-slate-600 italic">【粉體】奈米吸附強效混凝劑；可降COD、生物代謝臭味(生物污泥、糞便)、並具快速混凝等特性；適用振動研磨或其它高COD環境</span>
+                            <span class="text-slate-600">【粉體】奈米吸附強效混凝劑；可降COD、生物代謝臭味(生物污泥、糞便)、並具快速混凝等特性；適用振動研磨或其它高COD環境</span>
                         </button>
 
                         <button onclick="openChemicalModal('TRT-L1')" class="w-full text-left p-6 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/30 transition-all shadow-sm group">
                             <span class="font-bold text-blue-700 text-xl block mb-2 group-hover:underline">TRT-L1</span>
-                            <span class="text-slate-600 italic">【液體】強效混凝劑；多用途混凝劑：用於高COD、電泳漆、紡織上漿、銀變色防止液等工業廢水處理</span>
+                            <span class="text-slate-600">【液體】強效混凝劑；多用途混凝劑：用於高COD、電泳漆、紡織上漿、銀變色防止液等工業廢水處理</span>
                         </button>
 
                         <button onclick="openChemicalModal('TRT-OC')" class="w-full text-left p-6 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/30 transition-all shadow-sm group">
                             <span class="font-bold text-blue-700 text-xl block mb-2 group-hover:underline">TRT-OC</span>
-                            <span class="text-slate-600 italic">【液體】溶解性COD分解劑；適用大水量中低濃度(約150ppm左右)，為處理單元後段</span>
+                            <span class="text-slate-600">【液體】溶解性COD分解劑；適用大水量中低濃度(約150ppm左右)，為處理單元後段</span>
                         </button>
 
                         <button onclick="openChemicalModal('TRT-CaO')" class="w-full text-left p-6 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/30 transition-all shadow-sm group">
                             <span class="font-bold text-blue-700 text-xl block mb-2 group-hover:underline">TRT-CaO</span>
-                            <span class="text-slate-600 italic">【液體】加強分解溶解性COD催化劑 << 需搭配電媒塔 >>；利用催化劑及觸媒特性，充分分解COD</span>
+                            <span class="text-slate-600">【液體】加強分解溶解性COD催化劑 << 需搭配電媒塔 >>；利用催化劑及觸媒特性，充分分解COD；適用不同範圍COD</span>
                         </button>
 
                         <button onclick="openChemicalModal('TRT-SB8000')" class="w-full text-left p-6 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/30 transition-all shadow-sm group">
                             <span class="font-bold text-blue-700 text-xl block mb-2 group-hover:underline">TRT-SB8000</span>
-                            <span class="text-slate-600 italic">【粉體】活性碳COD吸附粉劑；粉狀活性碳：高碘值<200mesh，利用大比表面積吸附COD；含水率低，消泡能力非再生碳</span>
+                            <span class="text-slate-600">【粉體】活性碳COD吸附粉劑；粉狀活性碳：高碘值<200mesh，利用大比表面積吸附COD；吸附特性，含水率低，消泡能力非再生碳</span>
                         </button>
                     </div>
                 </div>
@@ -241,145 +283,74 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
         </div>
     </section>
 
-    <!-- 持久諮詢區塊 (底部橫幅，根據 1774335724934.jpg 完全保留資訊) -->
-    <section id="persistent-inquiry" class="inquiry-bg rounded-3xl overflow-hidden shadow-xl border border-blue-100 flex flex-col lg:flex-row">
-        <!-- 左側：需求清單 -->
-        <div class="lg:w-1/2 p-8 md:p-12">
-            <p class="text-blue-600 font-bold mb-4 tracking-wider">提供各項水處理藥劑設備，歡迎洽詢</p>
-            <h3 class="text-2xl md:text-3xl font-black text-slate-800 mb-8 leading-tight font-kai">
-                索取水處理藥劑樣品、購買藥劑<br>新(增)設、修改廢水處理設備
-            </h3>
-            <ul class="space-y-4">
-                <li class="flex items-center gap-3 text-slate-700 font-medium">
-                    <span class="text-blue-500 text-xl">✔</span> 製程高濃度COD廢液處理藥品
-                </li>
-                <li class="flex items-center gap-3 text-slate-700 font-medium">
-                    <span class="text-blue-500 text-xl">✔</span> 總氮、氨氮、硝酸鹽氮去除劑
-                </li>
-                <li class="flex items-center gap-3 text-slate-700 font-medium">
-                    <span class="text-blue-500 text-xl">✔</span> 高COD裂解系統規劃
-                </li>
-                <li class="flex items-center gap-3 text-slate-700 font-medium">
-                    <span class="text-blue-500 text-xl">✔</span> 鉻酸純化回收系統(硬鉻製程)
-                </li>
-                <li class="flex items-center gap-3 text-slate-700 font-medium">
-                    <span class="text-blue-500 text-xl">✔</span> 回收工程規劃、設計、施工、設備安裝
-                </li>
-            </ul>
-        </div>
-        <!-- 右側：表單 UI -->
-        <div class="lg:w-1/2 bg-slate-200/50 p-8 md:p-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
-                    <label class="block text-slate-500 text-sm mb-1 font-kai">公司名稱 *</label>
-                    <input type="text" class="w-full p-2 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label class="block text-slate-500 text-sm mb-1 font-kai">聯絡人 *</label>
-                    <input type="text" class="w-full p-2 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label class="block text-slate-500 text-sm mb-1 font-kai">電話 *</label>
-                    <input type="text" class="w-full p-2 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label class="block text-slate-500 text-sm mb-1 font-kai">信箱 *</label>
-                    <input type="text" class="w-full p-2 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500">
-                </div>
-            </div>
-            <div class="mb-6">
-                <label class="block text-slate-500 text-sm mb-1 font-kai">請說明您所需要的服務及遇到的情況 *</label>
-                <textarea rows="4" class="w-full p-2 rounded border border-slate-300 focus:ring-2 focus:ring-blue-500"></textarea>
-            </div>
-            <button class="w-full py-4 bg-slate-400 text-white font-bold rounded-lg transition-colors hover:bg-slate-500 shadow-md font-kai text-lg">
-                預約雷德斯通話與合作
-            </button>
-        </div>
-    </section>
-
 </main>
 
-<!-- 持久頁尾 (根據 1774335724934.jpg 完全保留資訊) -->
-<footer class="bg-slate-900 text-white py-16 border-t border-slate-800 mt-16">
-<div class="max-w-[1400px] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-sm">
-    <!-- 第一欄：聯絡我們 -->
-    <div class="space-y-6">
-        <div class="flex items-center gap-3">
-            <img src="trt.png" alt="Logo" class="h-10 w-auto">
-            <span class="font-kai font-bold text-xl tracking-wider">雷德斯減廢科技</span>
-        </div>
-        <div class="text-slate-400 space-y-2 leading-relaxed">
-            <p>電話：02-22866693</p>
-            <p>地址：新北市三重區溪尾街126巷15號</p>
-            <p>LINE：trt9002</p>
-        </div>
-    </div>
-    
-    <!-- 第二欄：快速選單 -->
-    <div>
-        <h4 class="font-bold mb-6 border-l-4 border-red-600 pl-3 font-kai text-base uppercase tracking-widest">快速選單</h4>
-        <ul class="text-slate-400 space-y-3">
-            <li><button onclick="switchTab('overview')" class="hover:text-white transition-colors">營運概覽</button></li>
-            <li><button onclick="switchTab('tech')" class="hover:text-white transition-colors">水處理藥劑設備</button></li>
-            <li><button onclick="switchTab('global')" class="hover:text-white transition-colors">環保工程實績</button></li>
-        </ul>
-    </div>
-    
-    <!-- 第三欄：核心服務 -->
-    <div>
-        <h4 class="font-bold mb-6 border-l-4 border-red-600 pl-3 font-kai text-base uppercase tracking-widest">核心服務</h4>
-        <ul class="text-slate-400 space-y-3">
-            <li>● 高濃度COD處理</li>
-            <li>● 總氮/硝酸鹽去除</li>
-            <li>● 鉻酸純化系統</li>
-        </ul>
-    </div>
-    
-    <!-- 第四欄：掃描諮詢 -->
-    <div class="text-center md:text-left">
-        <h4 class="font-bold mb-6 text-slate-400 tracking-widest font-kai">— 掃描諮詢 —</h4>
-        <div class="bg-white p-2 rounded-xl inline-block shadow-lg">
-            <div class="w-28 h-28 bg-slate-100 flex items-center justify-center text-slate-400 text-[10px] text-center px-2 font-bold">
-                [請在此替換為<br>LINE QR Code]
+<footer class="bg-slate-900 text-white py-16 border-t border-slate-800 mt-16 font-kai">
+    <div class="max-w-[1400px] mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
+        <div class="space-y-6">
+            <div class="flex items-center gap-3">
+                <img src="trt.png" alt="Logo" class="h-10 w-auto">
+                <span class="font-bold text-xl tracking-wider">雷德斯減廢科技</span>
+            </div>
+            <div class="text-slate-400 space-y-1">
+                <p>電話：02-22866693</p>
+                <p>地址：新北市三重區溪尾街126巷15號</p>
+                <p>LINE：trt9002</p>
             </div>
         </div>
-        <p class="text-[10px] mt-3 text-slate-500 font-kai">掃描上方 QR Code 立即諮詢</p>
+        <div>
+            <h4 class="font-bold mb-6 border-l-4 border-red-600 pl-3">快速選單</h4>
+            <ul class="text-slate-400 space-y-3">
+                <li><button onclick="switchTab('overview')" class="hover:text-white">營運概覽</button></li>
+                <li><button onclick="switchTab('tech')" class="hover:text-white">水處理藥劑設備</button></li>
+                <li><button onclick="switchTab('global')" class="hover:text-white">環保工程實績</button></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold mb-6 border-l-4 border-red-600 pl-3">核心服務</h4>
+            <ul class="text-slate-400 space-y-3">
+                <li>● 高濃度COD處理</li>
+                <li>● 總氮/硝酸鹽去除</li>
+                <li>● 鉻酸純化系統</li>
+            </ul>
+        </div>
+        <div class="text-center md:text-left">
+            <h4 class="font-bold mb-4 text-slate-400">— 掃描諮詢 —</h4>
+            <div class="bg-white p-2 rounded-xl inline-block shadow-lg">
+                <div class="w-24 h-24 bg-slate-100 flex items-center justify-center text-slate-400 text-[10px] font-bold">QR CODE</div>
+            </div>
+        </div>
     </div>
-</div>
-<div class="max-w-[1400px] mx-auto px-4 mt-16 pt-8 border-t border-slate-800 text-center text-slate-500 text-xs font-light">
-    <p>© 2026 Taiwan Redes Technology Co., Ltd. All Rights Reserved. 版權所有</p>
-</div>
 </footer>
 
 <!-- 藥劑詳情彈出視窗 -->
 <div id="image-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
     <div class="relative max-w-4xl w-full modal-enter">
-        <button onclick="closeChemicalModal()" class="absolute -top-14 right-0 md:-right-10 text-white text-6xl hover:text-red-500 focus:outline-none transition-colors leading-none">&times;</button>
+        <button onclick="closeChemicalModal()" class="absolute -top-14 right-0 text-white text-6xl leading-none hover:text-red-500 transition-colors">&times;</button>
         <div class="bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
             <img id="modal-image" src="" alt="藥劑詳情" class="w-full h-auto object-contain">
-            <div class="bg-slate-50 p-6 border-t border-slate-100 text-center">
-                <p id="modal-caption" class="text-slate-800 font-kai text-xl font-bold"></p>
-            </div>
+            <div id="modal-caption" class="bg-slate-50 p-6 text-center font-kai text-xl font-bold border-t border-slate-100"></div>
         </div>
     </div>
 </div>
 
 <script>
-// 彈出視窗圖片路徑定義
-const chemicalImages = {
-    'TRT-NA': '1774334510678.jpg',
-    'TRT-NAO': '1774334510678.jpg',
-    'default': '1774332983197.jpg'
-};
+function toggleMobileMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+}
 
-function openChemicalModal(modelId) {
+function openChemicalModal(id) {
     const modal = document.getElementById('image-modal');
     const img = document.getElementById('modal-image');
-    const caption = document.getElementById('modal-caption');
+    const cap = document.getElementById('modal-caption');
     
-    img.src = chemicalImages[modelId] || chemicalImages['default'];
-    caption.innerText = '藥劑型號：' + modelId + ' 產品詳情展示';
+    if (id === 'TRT-NA' || id === 'TRT-NAO') {
+        img.src = '1774334510678.jpg';
+    } else {
+        img.src = '1774332983197.jpg';
+    }
     
+    cap.innerText = '藥劑型號：' + id + ' 產品詳情';
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 }
@@ -389,25 +360,11 @@ function closeChemicalModal() {
     document.body.style.overflow = 'auto';
 }
 
-document.getElementById('image-modal').addEventListener('click', function(e) {
-    if (e.target === this) closeChemicalModal();
-});
-
-function toggleMobileMenu() {
-    document.getElementById('mobile-menu').classList.toggle('open');
-}
-
 function switchTab(id) {
-    // 隱藏所有視圖
-    document.querySelectorAll('main > section').forEach(s => {
-        if (s.id !== 'persistent-inquiry') s.classList.add('hidden');
-    });
-    
-    // 顯示目標視圖
+    document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
     const target = document.getElementById('view-' + id);
     if(target) target.classList.remove('hidden');
     
-    // 更新導覽鈕狀態
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     const navBtn = document.getElementById('btn-' + id);
     if(navBtn) navBtn.classList.add('active');
