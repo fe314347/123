@@ -18,34 +18,49 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .tech-item.active { border-left: 4px solid #0ea5e9; background-color: #f0f9ff; }
 .tech-item { border-left: 4px solid transparent; }
+
+.font-kai {
+    font-family: "標楷體", "DFKai-SB", "BiauKai", serif;
+}
+
+.logo-btn {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.logo-btn:active {
+    transform: scale(0.95);
+}
 </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
-<!-- Chosen Palette: Slate (Neutrals) & Sky Blue (Accents) -->
-<!-- Application Structure Plan: Tabbed SPA with a dedicated deep-dive view for R&D details. The header is now sticky to the top of the viewport. -->
-<!-- Visualization & Content Choices: Chart.js for interactive stats; Two-column grid for the 10 technical advantages. Logo replaced with red TRT logo. -->
+<!-- Chosen Palette: Slate (Neutrals), Sky Blue (Nav Accents) & Red (Brand Identity per Image) -->
+<!-- Application Structure Plan: Tabbed SPA logic. Header order adjusted per image 1774316477245.jpg. Logo serves as Home button. -->
+<!-- Visualization & Content Choices: Chart.js for data insights; Responsive Tailwind grid; Red DFKai-SB typography. -->
 <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
-<!-- 修改：添加 sticky top-0 以固定導覽列 -->
-<header class="bg-slate-900 text-white shadow-lg z-50 sticky top-0">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
-<div class="flex flex-col md:flex-row justify-between items-center gap-4">
-<div class="flex items-center gap-4">
-<!-- 修改：更換為紅色 TRT 標誌圖片 -->
-<div class="bg-white rounded-lg p-1">
-<img src="trt.png" alt="雷德斯 TRT 標誌" class="h-10 md:h-14 w-auto object-contain">
+<header class="bg-slate-900 text-white shadow-lg z-50 sticky top-0 border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-6">
+<!-- 標誌按鍵：移除背景容器，使其直接以圖片顯示 -->
+<button onclick="switchTab('overview')" class="logo-btn cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500">
+<img src="trt.jpg" alt="雷德斯 TRT 標誌" class="h-16 md:h-24 w-auto object-contain">
+</button>
+<div class="flex flex-col">
+<!-- 標題排序與尺寸調整 -->
+<h1 class="text-2xl md:text-4xl font-bold tracking-tight text-red-600 font-kai leading-tight">台灣雷德斯減廢科技有限公司</h1>
+<p class="text-red-500 text-[10px] md:text-lg font-medium mt-1 font-kai">Taiwan Reduce-pollutant Technology Co. Ltd</p>
+<!-- 強化紅線視覺 -->
+<div class="h-[3px] w-full bg-red-600 mt-2 rounded-full"></div>
+<p class="text-slate-300 text-[11px] md:text-sm mt-2 tracking-widest font-medium opacity-90">工業廢水處理與資源化專家 | 35年+ 專業經驗</p>
 </div>
-<div>
-<h1 class="text-xl md:text-2xl font-bold tracking-wide">雷德斯減廢科技 <span class="text-sky-400 font-light">TRT</span></h1>
-<p class="text-slate-400 text-xs md:text-sm mt-0.5 tracking-wider">工業廢水處理與資源化專家 | 35年+ 專業經驗</p>
 </div>
-</div>
-<nav class="flex gap-2 bg-slate-800 p-1 rounded-lg border border-slate-700 w-full md:w-auto overflow-x-auto">
-<button onclick="switchTab('overview')" id="btn-overview" class="nav-btn active px-4 py-2 rounded-md text-xs md:text-sm font-medium transition-all whitespace-nowrap">營運概覽</button>
-<button onclick="switchTab('tech')" id="btn-tech" class="nav-btn px-4 py-2 rounded-md text-xs md:text-sm font-medium transition-all whitespace-nowrap border border-transparent">核心技術分析</button>
-<button onclick="switchTab('global')" id="btn-global" class="nav-btn px-4 py-2 rounded-md text-xs md:text-sm font-medium transition-all whitespace-nowrap border border-transparent">全球實績分佈</button>
-<button onclick="switchTab('contact')" id="btn-contact" class="nav-btn px-4 py-2 rounded-md text-xs md:text-sm font-medium transition-all whitespace-nowrap border border-transparent">聯絡資訊</button>
+<!-- 導覽列位置調整 -->
+<nav class="flex gap-2 bg-slate-800/80 p-1 rounded-xl border border-slate-700 w-full md:w-auto overflow-x-auto shadow-xl">
+<button onclick="switchTab('overview')" id="btn-overview" class="nav-btn active px-5 py-2.5 rounded-lg text-xs md:text-sm font-bold transition-all whitespace-nowrap">營運概覽</button>
+<button onclick="switchTab('tech')" id="btn-tech" class="nav-btn px-5 py-2.5 rounded-lg text-xs md:text-sm font-bold transition-all whitespace-nowrap border border-transparent">核心技術分析</button>
+<button onclick="switchTab('global')" id="btn-global" class="nav-btn px-5 py-2.5 rounded-lg text-xs md:text-sm font-bold transition-all whitespace-nowrap border border-transparent">全球實績分佈</button>
+<button onclick="switchTab('contact')" id="btn-contact" class="nav-btn px-5 py-2.5 rounded-lg text-xs md:text-sm font-bold transition-all whitespace-nowrap border border-transparent">聯絡資訊</button>
 </nav>
 </div>
 </div>
@@ -102,7 +117,6 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
                 雷德斯TRT有超過35年豐富的工業製程廢水廢液實務處理經驗，開發出佔地小具有高效率高效能的廢水系統處理設備，能夠應對各種不同類型的廢水處理問題，根據客戶的需求提供全方位的解決方案，以確保最佳處理效果，又因講究細節，實際設備連續運轉長達數十年，為客戶生產提高整體產能獲得高度評價。
             </p>
 
-            <!-- 實務照片區 -->
             <div class="space-y-6 mb-16">
                 <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
                     <img src="customer.jpeg" alt="現場實際畫面" class="w-full h-auto object-cover">
@@ -113,7 +127,6 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
                 </div>
             </div>
 
-            <!-- 核心優勢列表 -->
             <div class="mt-16 border-t border-slate-100 pt-12">
                 <h3 class="text-2xl font-bold text-slate-800 mb-10 text-center">核心技術優勢</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
