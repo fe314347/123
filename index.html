@@ -59,29 +59,27 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
 <body class="antialiased min-h-screen flex flex-col">
 
 <!-- Chosen Palette: Slate (Neutrals), Sky Blue (Nav Active), & Red (Brand Identity) -->
-<!-- Application Structure Plan: Tabbed SPA logic. Header resized and moved left. Responsive nav (Desktop: row, Mobile: dropdown with icon). -->
-<!-- Visualization & Content Choices: Chart.js; DFKai-SB typography; Responsive Tailwind grid. Enlarge mobile menu icon further as requested. -->
+<!-- Application Structure Plan: Tabbed SPA logic. Header resized and moved left. Responsive nav (Desktop: row, Mobile: dropdown with icon). Service cards on overview view are now height-aligned for icons and text. Enlarge mobile menu icon further within fixed border size. -->
+<!-- Visualization & Content Choices: Chart.js; DFKai-SB typography; Responsive Tailwind grid. Standardized card content height. -->
 <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
 <header class="bg-slate-900 text-white shadow-lg z-50 sticky top-0 border-b border-slate-800">
 <div class="max-w-[1400px] mx-auto px-2 sm:px-4 py-3 md:py-6">
     <div class="flex justify-between items-center">
         
-        <!-- 左側：品牌區域 (整體縮小 10% 並靠左) -->
+        <!-- 左側：品牌區域 -->
         <div class="flex items-center gap-3 md:gap-5">
             <button onclick="switchTab('overview')" class="logo-btn cursor-pointer focus:outline-none">
-                <!-- 縮小標誌尺寸 -->
                 <img src="trt.png" alt="雷德斯 TRT 標誌" class="h-12 md:h-18 lg:h-20 w-auto object-contain">
             </button>
             <div class="flex flex-col">
-                <!-- 縮小文字尺寸 -->
                 <h1 class="text-lg md:text-2xl lg:text-3xl font-bold tracking-tight text-red-600 font-kai leading-tight">台灣雷德斯減廢科技有限公司</h1>
                 <p class="text-red-500 text-[9px] md:text-xs lg:text-sm font-medium mt-0.5 font-kai">Taiwan Reduce-pollutant Technology Co. Ltd</p>
                 <div class="h-[2px] w-full bg-red-600 mt-1 rounded-full"></div>
             </div>
         </div>
 
-        <!-- 右側：桌面導覽選單 (間距縮小，大螢幕顯示) -->
+        <!-- 右側：桌面導覽選單 -->
         <nav class="hidden lg:flex items-center gap-0 bg-slate-800/80 p-1 rounded-xl border border-slate-700 shadow-xl overflow-hidden">
             <button onclick="switchTab('overview')" id="btn-overview" class="nav-btn active px-3 lg:px-4 py-2 text-sm font-medium whitespace-nowrap">營運概覽</button>
             <button onclick="switchTab('tech')" id="btn-tech" class="nav-btn px-3 lg:px-4 py-2 text-sm font-medium whitespace-nowrap">水處理藥劑設備</button>
@@ -89,11 +87,11 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
             <button onclick="switchTab('contact')" id="btn-contact" class="nav-btn px-3 lg:px-4 py-2 text-sm font-medium whitespace-nowrap">聯絡雷德斯</button>
         </nav>
 
-        <!-- 行動裝置下拉按鍵 (小螢幕顯示，圖示進一步放大) -->
+        <!-- 行動裝置下拉按鍵 (小螢幕顯示) -->
         <div class="lg:hidden">
-            <button onclick="toggleMobileMenu()" class="p-2 bg-slate-800 rounded-xl border border-slate-700 focus:outline-none flex items-center justify-center">
-                <!-- 修改：將 class 從 h-10 w-10 調整為 h-14 w-14 以大幅放大圖示 -->
-                <img src="ha.png" alt="選單" class="h-20 w-20 object-contain">
+            <!-- 修改：將 p-2 縮小為 p-0.5，並將 img 尺寸從 h-14 放大至 h-16，使圖片貼近邊框但不推擠邊框 -->
+            <button onclick="toggleMobileMenu()" class="p-0.5 bg-slate-800 rounded-lg border border-slate-700 focus:outline-none flex items-center justify-center">
+                <img src="ha.png" alt="選單" class="h-16 w-16 object-contain">
             </button>
         </div>
     </div>
@@ -119,23 +117,35 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
 雷德斯TRT秉持精益求精的環境工程專業技術，因應各項環保法規及放流水標準開發之高效工業廢水處理藥劑/藥品與穩固耐用之工業廢水處理設備，務實解決COD、金屬、氰化物、氟、總氮(氨氮、亞硝酸鹽、硝酸鹽氮)等不同高低濃度廢水廢液需求，如振動研磨廢水處理及化學鎳工業製程高濃度廢液處理，廣泛得到客戶青睞肯定與長期配合。
 </p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<button onclick="switchTab('rd')" class="text-left glass-panel p-6 rounded-xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer group">
-<div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🔬</div>
-<h4 class="text-xl font-bold text-slate-800 mb-2">技術研發</h4>
-<p class="text-slate-500 text-sm">工業廢水處理設備 多項專利技術研發優勢。點擊深入了解 35 年豐富實務經驗與客戶評價。</p>
-</button>
 
-<div class="glass-panel p-6 rounded-xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer">
-<div class="text-4xl mb-4">♻️</div>
-<h4 class="text-xl font-bold text-slate-800 mb-2">藥劑服務</h4>
-<p class="text-slate-500 text-sm">打破線性排放，透過深度純化技術轉化為可重複利用資源。</p>
-</div>
-<div class="glass-panel p-6 rounded-xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer">
-<div class="text-4xl mb-4">✅</div>
-<h4 class="text-xl font-bold text-slate-800 mb-2">法規達標</h4>
-<p class="text-slate-500 text-sm">專業應對各類放流水標準，確保企業端 100% 合規營運。</p>
-</div>
+<!-- 服務項目卡片網格 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+    <!-- 卡片 1: 技術研發 -->
+    <button onclick="switchTab('rd')" class="flex flex-col text-left glass-panel p-8 rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer group h-full">
+        <div class="h-16 flex items-center mb-6">
+            <div class="text-5xl group-hover:scale-110 transition-transform">🔬</div>
+        </div>
+        <h4 class="text-2xl font-bold text-slate-800 mb-3">技術研發</h4>
+        <p class="text-slate-500 text-base leading-relaxed">廢水處理系統設備工程</p>
+    </button>
+
+    <!-- 卡片 2: 藥劑服務 -->
+    <div class="flex flex-col text-left glass-panel p-8 rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer group h-full">
+        <div class="h-16 flex items-center mb-6">
+            <div class="text-5xl group-hover:scale-110 transition-transform">🧪</div>
+        </div>
+        <h4 class="text-xl md:text-2xl font-bold text-slate-800 mb-3">藥劑服務</h4>
+        <p class="text-slate-500 text-base leading-relaxed">跨領域整合水處理藥劑</p>
+    </div>
+
+    <!-- 卡片 3: 法規達標 -->
+    <div class="flex flex-col text-left glass-panel p-8 rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform cursor-pointer group h-full">
+        <div class="h-16 flex items-center mb-6">
+            <div class="text-5xl group-hover:scale-110 transition-transform">✅</div>
+        </div>
+        <h4 class="text-xl md:text-2xl font-bold text-slate-800 mb-3">法規達標</h4>
+        <p class="text-slate-500 text-base leading-relaxed">確保企業 100% 合規營運</p>
+    </div>
 </div>
 </div>
 </section>
