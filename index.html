@@ -52,15 +52,15 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
     overflow: hidden;
 }
 #mobile-menu.open {
-    max-height: 300px;
+    max-height: 400px;
 }
 </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
 <!-- Chosen Palette: Slate (Neutrals), Sky Blue (Nav Active), & Red (Brand Identity) -->
-<!-- Application Structure Plan: Tabbed SPA logic. Header resized (-10%) and moved left. Responsive nav (Desktop: row, Mobile: dropdown). -->
-<!-- Visualization & Content Choices: Chart.js; DFKai-SB typography; Responsive Tailwind grid. -->
+<!-- Application Structure Plan: Tabbed SPA logic. Header resized and moved left. Responsive nav (Desktop: row, Mobile: dropdown with icon). -->
+<!-- Visualization & Content Choices: Chart.js; DFKai-SB typography; Responsive Tailwind grid. Updated mobile menu button to use 1774318151765.jpg icon. -->
 <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
 <header class="bg-slate-900 text-white shadow-lg z-50 sticky top-0 border-b border-slate-800">
@@ -71,7 +71,7 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
         <div class="flex items-center gap-3 md:gap-5">
             <button onclick="switchTab('overview')" class="logo-btn cursor-pointer focus:outline-none">
                 <!-- 縮小標誌尺寸 -->
-                <img src="trt.png" alt="雷德斯 TRT 標誌" class="h-12 md:h-18 lg:h-20 w-auto object-contain">
+                <img src="trt.jpg" alt="雷德斯 TRT 標誌" class="h-12 md:h-18 lg:h-20 w-auto object-contain">
             </button>
             <div class="flex flex-col">
                 <!-- 縮小文字尺寸 -->
@@ -89,20 +89,20 @@ body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; color
             <button onclick="switchTab('contact')" id="btn-contact" class="nav-btn px-3 lg:px-4 py-2 text-sm font-medium whitespace-nowrap">聯絡雷德斯</button>
         </nav>
 
-        <!-- 行動裝置下拉按鍵 (小螢幕顯示) -->
+        <!-- 行動裝置下拉按鍵 (小螢幕顯示，修改為圖片圖示) -->
         <div class="lg:hidden">
-            <button onclick="toggleMobileMenu()" class="p-2 bg-slate-800 rounded-lg border border-slate-700 text-sm font-kai">
-                選單 ▾
+            <button onclick="toggleMobileMenu()" class="p-1 bg-slate-800 rounded-lg border border-slate-700 focus:outline-none flex items-center justify-center">
+                <img src="1774318151765.jpg" alt="選單" class="h-8 w-8 object-contain">
             </button>
         </div>
     </div>
 
     <!-- 行動裝置下拉內容 -->
-    <div id="mobile-menu" class="lg:hidden mt-3 flex flex-col gap-1">
-        <button onclick="switchTab('overview'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm font-kai border border-slate-700">營運概覽</button>
-        <button onclick="switchTab('tech'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm font-kai border border-slate-700">水處理藥劑設備</button>
-        <button onclick="switchTab('global'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm font-kai border border-slate-700">環保工程實績</button>
-        <button onclick="switchTab('contact'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm font-kai border border-slate-700">聯絡雷德斯</button>
+    <div id="mobile-menu" class="lg:hidden mt-3 flex flex-col gap-1 font-kai">
+        <button onclick="switchTab('overview'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm border border-slate-700">營運概覽</button>
+        <button onclick="switchTab('tech'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm border border-slate-700">水處理藥劑設備</button>
+        <button onclick="switchTab('global'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm border border-slate-700">環保工程實績</button>
+        <button onclick="switchTab('contact'); toggleMobileMenu();" class="w-full text-left px-4 py-3 bg-slate-800/50 rounded-lg text-sm border border-slate-700">聯絡雷德斯</button>
     </div>
 </div>
 </header>
